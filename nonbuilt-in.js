@@ -27,14 +27,18 @@ substr = (string,start,end) => {
 split = (string,delimiter) => {
     let result = [], cacheString = '';
     for (let i=0;i<string.length;i++) {
-        if (string[i] !== delimiter) {
-            cacheString += string[i]
+        if (delimiter !== '') {
+            if (string[i] !== delimiter) {
+                cacheString += string[i]
+            } else {
+                result.push(cacheString);
+                cacheString = ''
+            }
         } else {
-            result.push(cacheString);
-            cacheString = ''
+            result.push(string[i])
         }
     }
-    result.push(cacheString);
+    if (delimiter !== '') {result.push(cacheString);}
     return result;
 }
 
