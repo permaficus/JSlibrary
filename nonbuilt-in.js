@@ -24,5 +24,20 @@ substr = (string,start,end) => {
     return newString;
 }
 
+split = (string,delimiter) => {
+    let result = [], cacheString = '';
+    for (let i=0;i<string.length;i++) {
+        if (string[i] !== delimiter) {
+            cacheString += string[i]
+        } else {
+            result.push(cacheString);
+            cacheString = ''
+        }
+    }
+    result.push(cacheString);
+    return result;
+}
+
 // test case
 console.log(substr('edan@gmail.com',0,indexOf('edan@gmail.com','@')));
+console.log(split('kentang-gandum-jeruk-anggur-durian','-'))
